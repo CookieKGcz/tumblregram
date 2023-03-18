@@ -3,6 +3,8 @@
     body {
         background-color: #e5e5e5;
         margin: 0;
+        display: grid;
+        grid: 8rem 5rem auto / auto 60rem auto;
     }
 
     .top-bar {
@@ -10,10 +12,38 @@
         height: 8rem;
         background-color: #011936;
         align-items: center;
+        grid-area: 1/1 /span 1 / span 3;
+    }
+
+    main {
+        border: 5px ridge #011936;
+        min-height: 60rem;
+        grid-area: 3/2;
+        background-color: aliceblue;
+    }
+
+    .hund-perc-height {
+        height: 100%;
+    }
+
+    #widthSameAsHeight {
+        aspect-ratio: 1/1;
+    }
+
+    .padding-1 {
+        padding: 1rem;
+    }
+
+    .border{
+        border-bottom: 2px ridge bisque;
     }
 
     .justi-cont-right {
         justify-content: right;
+    }
+
+    .justi-cont-center {
+        justify-content: center;
     }
 
     #sign-up {
@@ -26,6 +56,10 @@
         border: 4px solid aquamarine;
         color: aquamarine;
     }
+
+    /*.max-content {
+        height: max-content;
+    }*/
 
     .buttons>* {
         margin-right: 2rem;
@@ -54,11 +88,21 @@
 </head>
 
 <body>
-    <div class="top-bar flex flex-dir-row">
-        <!--<img src="imgs/výkresCCC.svg">-->
-        <img src="imgs/CX.png">
-        <div class="justi-con-right flex flex-dir-row"> <button id="sign-up">Sign up</button> <button id="log-in">Log in</button> </div>
+    <div class="top-bar flex flex-dir-row border">
+
+        <div class="padding-1 hund-perc-height" id="widthSameAsHeight">
+            <img src="imgs/výkresCCCC.svg" height="100%">
+        </div>
+        <!--<img src="imgs/CX.png" class="hund-perc">-->
+        <div class="top-bar buttons flex flex-dir-row justi-cont-right">
+            <button id="sign-up">Sign up</button>
+            <button id="log-in">Log in</button>
+        </div>
     </div>
+
+    <main>
+
+    </main>
 </body>
 
 </html>
