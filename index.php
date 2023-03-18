@@ -9,11 +9,10 @@
         width: 100%;
         height: 8rem;
         background-color: #011936;
-        justify-content: right;
         align-items: center;
     }
 
-    .buttons {
+    .justi-cont-right {
         justify-content: right;
     }
 
@@ -58,7 +57,7 @@
     <div class="top-bar flex flex-dir-row">
         <!--<img src="imgs/výkresCCC.svg">-->
         <img src="imgs/CX.png">
-        <div class="buttons flex flex-dir-row"> <button id="sign-up">Sign up</button> <button id="log-in">Log in</button> </div>
+        <div class="justi-con-right flex flex-dir-row"> <button id="sign-up">Sign up</button> <button id="log-in">Log in</button> </div>
     </div>
 </body>
 
