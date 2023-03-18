@@ -56,6 +56,8 @@
 
 <body>
     <div class="top-bar flex flex-dir-row">
+        <!--<img src="imgs/výkresCCC.svg">-->
+        <img src="imgs/CX.png">
         <div class="buttons flex flex-dir-row"> <button id="sign-up">Sign up</button> <button id="log-in">Log in</button> </div>
     </div>
 </body>
