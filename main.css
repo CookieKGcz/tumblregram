@@ -46,7 +46,7 @@ main {
   color: black;
   transition: box-shadow 0.15s;
 }
-
+    /*komentik*/
 #sign-up:hover {
   box-shadow: 0 0 1.5rem aquamarine;
   cursor: pointer;
