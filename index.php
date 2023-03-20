@@ -12,8 +12,8 @@
         <img style="margin-left: 1rem;" src="imgs/výkresCCCC.svg" height="80%">
         <!--<img src="imgs/CX.png" class="hund-perc">-->
         <div class="top-bar buttons flex flex-dir-row justi-cont-right">
-            <button id="sign-up">Sign up</button>
-            <button id="log-in">Log in</button>
+            <button id="sign-up" onclick="document.location='sign_up.php'">Sign up</button>
+            <button id="log-in" onclick="document.location='log_in.php'">Log in</button>
         </div>
     </div>
 
