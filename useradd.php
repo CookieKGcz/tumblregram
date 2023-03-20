@@ -14,7 +14,7 @@ if (!empty($username) && !empty($password) && !empty($repeatPassword)) {
     if (isValid($password)) {
 
       $stmt = $db->prepare("INSERT INTO users (username, password) VALUES (?, ?);");
-      $stmt->execute([$username, $password]);
+      $stmt->execute([$username, md5($password)]);
       $_SESSION["user"] = $username;
       header("Location: index.php");
     } else {
