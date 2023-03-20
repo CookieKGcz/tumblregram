@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 require_once 'config.php';
 
 $username = $_POST['username'];
@@ -14,6 +15,8 @@ if (!empty($username) && !empty($password) && !empty($repeatPassword)) {
 
       $stmt = $db->prepare("INSERT INTO users (username, password) VALUES (?, ?);");
       $stmt->execute([$username, $password]);
+      $_SESSION["user"] = $username;
+      header("Location: index.php");
     } else {
       echo 'Heslo není validní.';
     }
