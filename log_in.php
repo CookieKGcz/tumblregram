@@ -6,11 +6,15 @@
     <title>Log in</title>
     <link rel="icon" type="image/x-icon" href="imgs/CCCCC.ico">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="forms.css">
 </head>
 <body>
-    <!--forms věci-->
+    <form action="useradd.php" method="post">
+        <input type="text" name="username" id="username">
+        <input type="password" name="password" id="password">
 
-
+        <button type="submit">Sign up</button>
+    </form>
 </body>
 
 </html>
