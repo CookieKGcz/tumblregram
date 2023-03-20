@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "Enter commit message: " msg
+
 git add .
-git commit -m "$msg"
+git commit -m "$1"
 git push
