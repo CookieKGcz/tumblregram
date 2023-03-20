@@ -1,0 +1,48 @@
+body {
+    background-color: #011936;
+}
+
+/*do main*/
+.flex-col {
+    flex-direction: column;
+}
+
+.p-5 {
+    padding: 5rem;
+}
+
+.w-50 {
+    width: 30%;
+}
+
+.border-white {
+    border: rgb(255, 255, 255) solid 3px;
+}
+
+.border-green {
+    border: green solid 3px;
+}
+
+.justify-content {
+    justify-content: center;
+}
+
+.align-items {
+    align-items: center;
+}
+
+.green {
+    color: green;
+}
+
+.bg-grey {
+    background: #cecece;
+}
+
+.bg {
+    background: #011936;
+}
+
+.margin-bot-3 {
+    margin-bottom: 3rem;
+}
