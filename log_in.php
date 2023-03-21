@@ -10,8 +10,8 @@
 </head>
 <body class="bg flex justify-content align-items">
     <form action="userlog.php" method="post" class="bg flex flex-col w-50 p-5 border-white">
-        <input type="text" name="username" id="username" class="border-white margin-bot-3">
-        <input type="password" name="password" id="password" class="border-white margin-bot-3">
+        <input type="text" name="username" id="username" placeholder="Enter a username" class="border-white margin-bot-3">
+        <input type="password" name="password" id="password" placeholder="Enter a password" class="border-white margin-bot-3">
 
         <button type="submit" class="border-green green">Log in</button>
     </form>
