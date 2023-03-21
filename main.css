@@ -34,10 +34,11 @@ body {
 }
 
 main {
-  border: 5px ridge #011936;
+  border-right: 4px solid dimgrey;
+  border-left: 4px solid dimgray;
   min-height: 60rem;
   grid-area: 3/2;
-  background-color: aliceblue;
+  background-color: #e5e5e5;
 }
 
 .padding-1 {
