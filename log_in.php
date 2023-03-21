@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="forms.css">
 </head>
 <body class="bg flex justify-content align-items">
-    <form action="useradd.php" method="post" class="bg flex flex-col w-50 p-5 border-white">
+    <form action="userlog.php" method="post" class="bg flex flex-col w-50 p-5 border-white">
         <input type="text" name="username" id="username" class="border-white margin-bot-3">
         <input type="password" name="password" id="password" class="border-white margin-bot-3">
 
