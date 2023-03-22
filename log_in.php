@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="forms.css">
 </head>
-<body class="bg flex justify-content align-items">
-    <form action="userlog.php" method="post" class="bg flex flex-col w-50 p-5 border-white">
-        <input type="text" name="username" id="username" placeholder="Enter a username" class="border-white margin-bot-3">
-        <input type="password" name="password" id="password" placeholder="Enter a password" class="border-white margin-bot-3">
+<body>
+    <div class="form-background">
+        <form action="userlog.php" method="post" class="form-input">
+            <input type="text" name="username" id="username" placeholder="Enter a username">
+            <input type="password" name="password" id="password" placeholder="Enter a password">
 
-        <button type="submit" class="border-green green">Log in</button>
-    </form>
+            <button type="submit">Log in</button>
+            <p class="redirect">Don't have an account yet? <a href="sign_up.php">Sign up</a></p>
+        </form>
+    </div>
 </body>
 
 </html>

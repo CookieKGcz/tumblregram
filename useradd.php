@@ -1,7 +1,7 @@
 <?php
-
 session_start();
 require_once 'config.php';
+require_once 'sign_up.php';
 
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -10,24 +10,34 @@ $repeatPassword = $_POST['repeatPassword'];
 $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_USERNAME, DB_USERNAME, DB_PASSWORD);
 
 if (!empty($username) && !empty($password) && !empty($repeatPassword)) {
-  if ($password == $repeatPassword) {
-    if (isValid($password)) {
-
-      $stmt = $db->prepare("INSERT INTO users (username, password) VALUES (?, ?);");
-      $stmt->execute([$username, md5($password)]);
-      $_SESSION["user"] = $username;
-      header("Location: index.php");
+  if (usernameValid($username, $db)) {
+    if ($password == $repeatPassword) {
+      if (passwordValid($password)) {
+        $stmt = $db->prepare("INSERT INTO users (username, password) VALUES (?, ?);");
+        $stmt->execute([$username, md5($password)]);
+        $_SESSION["user"] = $username;
+        header("Location: index.php");
+      } else {
+        ?>
+        <span class="error"><?= "Password is invalid!" ?></span>
+        <?php
+      }
     } else {
-      echo 'Heslo není validní.';
+      ?>
+      <span class="error"><?= "Passwords are not the same!" ?></span>
+      <?php
     }
   } else {
-    echo 'Hesla se neshodují.';
+    ?>
+    <span class="error"><?= "This username is already taken!" ?></span>
+    <?php
   }
 } else {
-  echo 'Nejsou vyplněna všechna pole.';
+  ?>
+  <span class="error"><?= "Not all fields have been filled!" ?></span>
+  <?php
 }
-
-function isValid(string $password): bool
+function passwordValid(string $password): bool
 {
   $pswdLen = strlen($password);
   if ($pswdLen < 8)
@@ -48,4 +58,10 @@ function isValid(string $password): bool
       return true;
   }
   return false;
+}
+
+function usernameValid (string $username, $db): bool {
+  $query = $db->prepare("SELECT * FROM users WHERE username = ?");
+  $query->execute([$username]);
+  return $query->rowCount() == 0;
 }
