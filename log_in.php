@@ -19,8 +19,9 @@
 
             <button type="submit">Log in</button>
             <p class="redirect">Don't have an account yet? <a href="sign_up.php">Sign up</a></p>
+            <p class="error-msg"></p>
         </form>
     </div>
 </body>
-
 </html>
+<script src="scripts/errorHandler.js"></script>

@@ -1,8 +1,11 @@
 <?php
 
-
 session_start();
 require_once 'config.php';
+require_once 'log_in.php';
+?>
+<script src="scripts/errorHandler.js"></script>
+<?php
 
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -14,11 +17,15 @@ if (!empty($username) && !empty($password)) {
         $_SESSION["user"] = $username;
         header("Location: index.php");
     } else {
-        echo 'Heslo není správné.';
+        ?>
+            <script>setErrorMsg("Incorrect Password!")</script>
+        <?php
     }
 }
 else {
-    echo 'Nejsou vyplněna všechna pole.';
+    ?>
+        <script>setErrorMsg("Not all fields have been filled!")</script>
+    <?php
 }
 function loginfn(string $username, string $password, $db): bool {
     $query = $db->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
