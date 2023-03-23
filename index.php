@@ -12,7 +12,6 @@ session_start();
     <link rel="icon" type="image/x-icon" href="imgs/logo.ico">
     <link rel="stylesheet" href="main.css">
 </head>
-
 <body>
     <div class="top-bar flex flex-dir-row just-cont-right">
         <img style="margin-left: 1rem;" src="imgs/logo.svg" height="80%">

@@ -2,6 +2,9 @@
 session_start();
 require_once 'config.php';
 require_once 'sign_up.php';
+?>
+<script src="scripts/errorHandler.js"></script>
+<?php
 
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -19,22 +22,22 @@ if (!empty($username) && !empty($password) && !empty($repeatPassword)) {
         header("Location: index.php");
       } else {
         ?>
-        <span class="error"><?= "Password is invalid!" ?></span>
+        <script>setErrorMsg("Password is invalid!")</script>
         <?php
       }
     } else {
       ?>
-      <span class="error"><?= "Passwords are not the same!" ?></span>
+      <script>setErrorMsg("Passwords are not the same!")</script>
       <?php
     }
   } else {
     ?>
-    <span class="error"><?= "This username is already taken!" ?></span>
+    <script>setErrorMsg("This username is already taken!")</script>
     <?php
   }
 } else {
   ?>
-  <span class="error"><?= "Not all fields have been filled!" ?></span>
+  <script>setErrorMsg("Not all fields have been filled!")</script>
   <?php
 }
 function passwordValid(string $password): bool

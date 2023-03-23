@@ -21,7 +21,7 @@ body {
     align-items: center;
 }
 
-.form-input > *:not(:last-child) {
+.form-input > *:not(p) {
     margin-top: 1rem;
     width: 12rem;
     height: 1.75rem;
@@ -34,7 +34,12 @@ body {
     font-size: 1rem;
 }
 
-.error {
+.error-msg {
     font-size: 1.5rem;
     color: white;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.8;
 }

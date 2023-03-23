@@ -1,12 +1,15 @@
 <!DOCTYPE html>
+<div id="bubble-wrapper"></div> 
 <html lang="en">
 <head>
+    <script src="scripts/bubble-animation.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
     <link rel="icon" type="image/x-icon" href="imgs/CCCCC.ico">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="forms.css">
+    <link rel="stylesheet" href="bubble-animation.css">
 </head>
 <body>
     <div class="form-background">
