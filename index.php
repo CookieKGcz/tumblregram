@@ -14,7 +14,11 @@ session_start();
 </head>
 <body>
     <div class="top-bar flex flex-dir-row">
-        <img  id="logo" src="imgs/logo.svg" height="80%">
+        <img id="logo" src="imgs/logo.svg" height="80%">
+        <form class="search-bar">
+            <input id="mag-glass" type="image" src="imgs/Magnifying_glass_icon.svg" alt="Search" height="28px">
+            <input class="search-input" type="text" placeholder="Search">
+        </form>
         <div class="buttons flex flex-dir-row">
             <?php
             if (!isset($_SESSION["user"])) { ?>
