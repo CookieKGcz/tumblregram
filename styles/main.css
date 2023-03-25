@@ -8,6 +8,23 @@ body {
 
 }
 
+.profile-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.pfp {
+  margin-right: 2rem;
+  height: 4.5rem;
+  width: 4.5rem;
+}
+
+.pfp img {
+  border-radius: 100%;
+  width: 100%;
+  height: 100%;
+}
 
 .flex {
   display: flex;
@@ -31,7 +48,7 @@ body {
   justify-content: end;
 }
 
-.buttons > * {
+.buttons button{
   margin-right: 2rem;
   height: 3rem;
   width: 10rem;
@@ -40,7 +57,7 @@ body {
   font-weight: bolder;
 }
 
-.buttons > *:hover {
+.buttons button:hover {
   box-shadow: 0 0 1.5rem aqua;
   cursor: pointer;
 }

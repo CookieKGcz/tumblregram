@@ -11,6 +11,7 @@ session_start();
     <title>TumblreGram</title>
     <link rel="icon" type="image/x-icon" href="imgs/logo.ico">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dropdown.css">
 </head>
 <body>
     <div class="top-bar flex flex-dir-row">
@@ -27,7 +28,19 @@ session_start();
             <?php
             } else {
                 ?>
-                    <button id="log-out" onclick="document.location='log_out.php'">Log out</button>
+                <a class="pfp" href="profile.php">
+                    <img src="imgs/gargamel-pfp.jpg">
+                </a>
+                <div class="dropdown">
+                    <div class="drop-btn">
+                        <img src="imgs/three-lines-icon.svg" height="100%">
+                    </div>
+                    <div class="drop-content">
+                        <a href="index.php">Home</a>
+                        <a href="profile.php">My Profile</a>
+                        <a href="log_out.php">Log Out</a>
+                    </div>
+                </div>
                 <?php
             }
             ?>
