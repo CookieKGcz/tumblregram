@@ -26,7 +26,6 @@
             </form>
         </div>
     </div>
-    
 </body>
 </html>
 <script src="scripts/errorHandler.js"></script>

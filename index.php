@@ -15,9 +15,9 @@ session_start();
 <body>
     <div class="top-bar flex flex-dir-row">
         <img id="logo" src="imgs/logo.svg" height="80%">
-        <form class="search-bar">
+        <form id="search-bar">
             <input id="mag-glass" type="image" src="imgs/Magnifying_glass_icon.svg" alt="Search" height="28px">
-            <input class="search-input" type="text" placeholder="Search">
+            <input id="search-box" type="text" onfocus="setOutline()" onfocusout="removeOutline()" placeholder="Search">
         </form>
         <div class="buttons flex flex-dir-row">
             <?php
@@ -38,3 +38,4 @@ session_start();
     </main>
 </body>
 </html>
+<script src="scripts/search-bar-outline.js"></script>

@@ -18,7 +18,7 @@ if (!empty($username) && !empty($password)) {
         header("Location: index.php");
     } else {
         ?>
-            <script>setErrorMsg("Incorrect Password!")</script>
+            <script>setErrorMsg("Incorrect password or username!")</script>
         <?php
     }
 }
