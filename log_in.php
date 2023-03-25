@@ -7,20 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
     <link rel="icon" type="image/x-icon" href="imgs/CCCCC.ico">
-    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/forms.css">
     <link rel="stylesheet" href="styles/bubble-animation.css">
 </head>
 <body>
-    <div class="form-background">
-        <form action="userlog.php" method="post" class="form-input">
-            <input type="text" name="username" id="username" placeholder="Enter a username">
-            <input type="password" name="password" id="password" placeholder="Enter a password">
+    <a href="index.php" id="home-btn-link">
+        <img src="imgs/left_arrow_white.png" id="home-button">
+    </a>
+    <div class="form-wrapper">
+        <div class="form-background">
+            <form action="userlog.php" method="post" class="form-input">
+                <input type="text" name="username" id="username" placeholder="Enter a username">
+                <input type="password" name="password" id="password" placeholder="Enter a password">
 
-            <button type="submit">Log in</button>
-            <p class="redirect">Don't have an account yet? <a href="sign_up.php">Sign up</a></p>
-            <p class="error-msg"></p>
-        </form>
+                <button type="submit">Log in</button>
+                <p class="redirect">Don't have an account yet? <a href="sign_up.php">Sign up</a></p>
+                <p class="error-msg"></p>
+            </form>
+        </div>
     </div>
 </body>
 </html>
