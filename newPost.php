@@ -4,6 +4,25 @@ require_once 'config.php';
 
 $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_USERNAME, DB_USERNAME, DB_PASSWORD);
 
+if (isset($_POST["title"])) {
+    if (empty($_FILES["image"]["error"])) {
+        $title = $_POST['title'];
+        $postContent = $_POST['post-content'];
+
+        $creationDate = $db->query("SELECT `creation-date` FROM `users` WHERE `username` = '" . $_SESSION['user'] . "';")->fetch()["creation-date"];
+        $newDate = date("d.m. Y H:i", strtotime($creationDate));
+
+        $authorId = $db->query("SELECT id FROM users WHERE username = '" . $_SESSION["user"] . "'")->fetch()["id"];
+
+        $image = file_get_contents($_FILES["image"]["tmp_name"]);
+
+        $stmt = $db->prepare("INSERT INTO `posts` (`authorId`, `title`, `content`, `image`) VALUES (?, ?, ?, ?);");
+        $stmt->execute([$authorId, $title, $postContent, base64_encode($image)]);
+        
+        header("Location: index.php");
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +63,7 @@ $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_USERNAME, DB_USERNAME, D
     </div>
     <main> 
         <form method="post" class="new-post flex flex-dir-col">
-            <input type="text" name="title" id="title" placeholder="Title">
+            <input type="text" name="title" id="title" placeholder="Title" required>
             <textarea name="post-content" id="post-content" placeholder="Text (optional)"></textarea>
             <label for="image" id="image-btn">Choose image</label>
             <input type="file" name="image" id="image" accept="image/*">
