@@ -38,7 +38,7 @@ session_start();
                     </div>
                     <div class="drop-content">
                         <a href="index.php">Home</a>
-                        <a href="index.php">Create new post</a>
+                        <a href="newPost.php">Create new post</a>
                         <a href="profile.php">My Profile</a>
                         <a href="log_out.php">Log Out</a>
                     </div>

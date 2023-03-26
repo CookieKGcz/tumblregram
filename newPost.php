@@ -4,8 +4,6 @@ require_once 'config.php';
 
 $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_USERNAME, DB_USERNAME, DB_PASSWORD);
 
-$creationDate = $db->query("SELECT `creation-date` FROM `users` WHERE `username` = '" . $_SESSION['user'] . "';")->fetch()["creation-date"];
-$newDate = date("d.m. Y", strtotime($creationDate)); 
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +14,7 @@ $newDate = date("d.m. Y", strtotime($creationDate));
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TumblreGram</title>
     <link rel="icon" type="image/x-icon" href="imgs/logo.ico">
-    <link rel="stylesheet" href="styles/profile.css">
+    <link rel="stylesheet" href="styles/newPost.css">
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/dropdown.css">
 </head>
@@ -44,21 +42,14 @@ $newDate = date("d.m. Y", strtotime($creationDate));
             </div>
         </div>
     </div>
-    <main>
-        <div class="profile-description flex flex-dir-row">
-            <div class="profile-image flex flex-dir-col">
-                <img class="profile-description-picture" src="imgs/gargamel-pfp.jpg">
-                <button class="change-pfp-btn">Change profile picture</button>
-            </div>
-            <div class="profile-info flex flex-dir-col">
-                <span class="username">
-                    <?= $_SESSION["user"] ?>
-                </span>
-                <span class="creation-date">
-                    Member since - <?= $newDate ?>
-                </span>
-            </div>
-        </div>
+    <main> 
+        <form method="post" class="new-post flex flex-dir-col">
+            <input type="text" name="title" id="title" placeholder="Title">
+            <textarea name="post-content" id="post-content" placeholder="Text (optional)"></textarea>
+            <label for="image" id="image-btn">Choose image</label>
+            <input type="file" name="image" id="image" accept="image/*">
+            <button type="submit" id="submit-btn">Post</button>
+        </form>
     </main>
 </body>
 </html>
