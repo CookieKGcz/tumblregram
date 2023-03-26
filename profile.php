@@ -1,5 +1,11 @@
 <?php
 session_start();
+require_once 'config.php';
+
+$db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_USERNAME, DB_USERNAME, DB_PASSWORD);
+
+$creationDate = $db->query("SELECT `creation-date` FROM `users` WHERE `username` = '" . $_SESSION['user'] . "';")->fetch()["creation-date"];
+$newDate = date("d.m. Y", strtotime($creationDate)); 
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +15,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TumblreGram</title>
+    <link rel="icon" type="image/x-icon" href="imgs/logo.ico">
     <link rel="stylesheet" href="styles/profile.css">
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/dropdown.css">
@@ -37,7 +44,20 @@ session_start();
         </div>
     </div>
     <main>
-        
+        <div class="profile-description flex flex-dir-row">
+            <div class="profile-image flex flex-dir-col">
+                <img class="profile-description-picture" src="imgs/gargamel-pfp.jpg">
+                <button class="change-pfp-btn">Change profile picture</button>
+            </div>
+            <div class="profile-info flex flex-dir-col">
+                <span class="username">
+                    <?= $_SESSION["user"] ?>
+                </span>
+                <span class="creation-date">
+                    Member since - <?= $newDate ?>
+                </span>
+            </div>
+        </div>
     </main>
 </body>
 </html>

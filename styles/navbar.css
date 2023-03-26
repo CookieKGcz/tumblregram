@@ -16,6 +16,10 @@
   height: 100%;
 }
 
+.pfp img:hover {
+  outline: 2px double white;
+}
+
 .top-bar {
   height: 8rem;
   background-color: #011936;
