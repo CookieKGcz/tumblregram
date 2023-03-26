@@ -11,6 +11,7 @@ session_start();
     <title>TumblreGram</title>
     <link rel="icon" type="image/x-icon" href="imgs/logo.ico">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/dropdown.css">
 </head>
 <body>
