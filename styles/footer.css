@@ -1,0 +1,11 @@
+footer {
+    grid-area: 5/1 / span 1 / span 3;
+    justify-content: center;
+    align-items: center;
+    background-color: #011936
+}
+
+.footer-github {
+    height: 2rem;
+    width: 2rem;
+}

@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+require_once "config.php";
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +15,7 @@ session_start();
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/dropdown.css">
+    <link rel="stylesheet" href="styles/footer.css">
 </head>
 <body>
     <div class="top-bar flex flex-dir-row">
@@ -54,6 +57,11 @@ session_start();
     <main>
 
     </main>
+    <footer class="flex flex-dir-row" >
+        <a href="https://github.com/CookieKGcz/tumblregram" class="footer-github">
+            <img src="imgs/Github-logo.svg" height="100%">
+        </a>
+    </footer>
 </body>
 </html>
 <script src="scripts/search-bar-outline.js"></script>
