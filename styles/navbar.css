@@ -1,7 +1,27 @@
+/*Were is profile wrapper?*/
+
 .profile-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: end;
+}
+
+.newPost-btn-link {
+  margin-right: 2rem;
+  height: 4.5rem;
+  width: 4.5rem;
+  border-radius: 100%;
+}
+
+.newPost-btn-link img {
+  width: 100%;
+  height: 100%;
+}
+
+/*Dodělat placement*/
+
+.newPost-btn-link:hover {
+  box-shadow: inset 0px 0px 15px aqua;
 }
 
 .pfp {

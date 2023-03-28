@@ -29,6 +29,9 @@ session_start();
             <?php
             } else {
                 ?>
+                <a href="newPost.php" class="newPost-btn-link">
+                    <img src="imgs/plus-circle.svg" id="newPost-button">
+                </a>
                 <a class="pfp" href="profile.php">
                     <img src="imgs/gargamel-pfp.jpg">
                 </a>
