@@ -45,6 +45,9 @@ if (isset($_POST["title"])) {
             <input id="search-box" type="text" onfocus="setOutline()" onfocusout="removeOutline()" placeholder="Search">
         </form>
         <div class="profile-wrapper">
+            <a href="newPost.php" class="newPost-btn-link">
+                <img src="imgs/plus-circle.svg" id="newPost-button">
+            </a>
             <a class="pfp" href="profile.php">
                 <img src="imgs/gargamel-pfp.jpg">
             </a>
