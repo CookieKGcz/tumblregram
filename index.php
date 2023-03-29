@@ -22,7 +22,9 @@ $user = $db->query("SELECT * FROM `users` WHERE `username` = '" . $_SESSION['use
 </head>
 <body>
     <div class="top-bar flex flex-dir-row">
-        <img id="logo" src="imgs/logo.svg" height="80%">
+        <a href="index.php" id="logo">
+            <img src="imgs/logo.svg" height="100%">
+        </a>
         <form id="search-bar">
             <input id="mag-glass" type="image" src="imgs/Magnifying_glass_icon.svg" alt="Search" height="28px">
             <input id="search-box" type="text" onfocus="setOutline()" onfocusout="removeOutline()" placeholder="Search">
