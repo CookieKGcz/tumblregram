@@ -2,6 +2,9 @@
 session_start();
 
 require_once "config.php";
+
+$db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_USERNAME, DB_USERNAME, DB_PASSWORD);
+$user = $db->query("SELECT * FROM `users` WHERE `username` = '" . $_SESSION['user'] . "';")->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +39,7 @@ require_once "config.php";
                     <img src="imgs/plus-circle.svg" id="newPost-button">
                 </a>
                 <a class="pfp" href="profile.php">
-                    <img src="imgs/gargamel-pfp.jpg">
+                    <img src="data:image/png;base64,<?= $user["pfp"] ?>">
                 </a>
                 <div class="dropdown">
                     <div class="drop-btn">

@@ -9,6 +9,9 @@ if (isset($_POST["title"])) {
         $title = $_POST['title'];
         $postContent = $_POST['post-content'];
 
+        $postCount = $db->query("SELECT `posts` FROM `users` WHERE `username` = '" . $_SESSION['user'] . "';")->fetch()["posts"];
+        $postCountPlus = (int)$postCount + 1;
+
         $creationDate = $db->query("SELECT `creation-date` FROM `users` WHERE `username` = '" . $_SESSION['user'] . "';")->fetch()["creation-date"];
         $newDate = date("d.m. Y H:i", strtotime($creationDate));
 
@@ -18,11 +21,15 @@ if (isset($_POST["title"])) {
 
         $stmt = $db->prepare("INSERT INTO `posts` (`authorId`, `title`, `content`, `image`) VALUES (?, ?, ?, ?);");
         $stmt->execute([$authorId, $title, $postContent, base64_encode($image)]);
+
+        $postIncrement = $db->prepare("UPDATE `users`
+                                        SET `posts` = `posts` + 1
+                                        WHERE `username` = '" . $_SESSION['user'] . "';
+                                    ")->execute();
         
         header("Location: index.php");
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +73,7 @@ if (isset($_POST["title"])) {
         </div>
     </div>
     <main> 
-        <form method="post" class="new-post flex flex-dir-col">
+        <form method="post" enctype="multipart/form-data" class="new-post flex flex-dir-col">
             <input type="text" name="title" id="title" placeholder="Title" required>
             <textarea name="post-content" id="post-content" placeholder="Text (optional)"></textarea>
             <label for="image" id="image-btn">Choose image</label>
