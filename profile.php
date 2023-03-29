@@ -16,6 +16,7 @@ $newDate = date("d.m. Y", strtotime($creationDate));
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TumblreGram</title>
     <link rel="icon" type="image/x-icon" href="imgs/logo.ico">
+    <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/profile.css">
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/dropdown.css">
@@ -63,6 +64,11 @@ $newDate = date("d.m. Y", strtotime($creationDate));
             </div>
         </div>
     </main>
+    <footer class="flex flex-dir-row" >
+        <a href="https://github.com/CookieKGcz/tumblregram" class="footer-github">
+            <img src="imgs/Github-logo.svg" height="100%">
+        </a>
+    </footer>
 </body>
 </html>
 <script src="scripts/search-bar-outline.js"></script>

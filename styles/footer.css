@@ -1,5 +1,8 @@
 footer {
-    grid-area: 5/1 / span 1 / span 3;
+    grid-area: 3/1 / span 1 / span 3;
+
+    height: 5rem;
+    align-self: end;
     justify-content: center;
     align-items: center;
     background-color: #011936

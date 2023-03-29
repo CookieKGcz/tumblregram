@@ -1,7 +1,8 @@
 body {
   margin: 0;
+  min-height: 100vh;
   display: grid;
-  grid: 16rem 60rem / 1fr 2fr 1fr;
+  grid: 16rem auto 10rem / 1fr 2fr 1fr;
 
   background: #1A1B26;
   color: #acacac;
