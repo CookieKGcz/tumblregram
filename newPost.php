@@ -9,7 +9,7 @@ $user = $db->query("SELECT * FROM `users` WHERE `username` = '" . $_SESSION['use
 $creationDate = $db->query("SELECT `creation-date` FROM `users` WHERE `username` = '" . $_SESSION['user'] . "';")->fetch()["creation-date"];
 $newDate = date("d.m. Y H:i", strtotime($creationDate));
 
-if (isset($_POST["title"])) {
+if (isset($_POST["title"]) && $_FILES["image"]["tmp_name"] == "") {
     $title = $_POST['title'];
     $postContent = $_POST['post-content'];
 
@@ -18,23 +18,31 @@ if (isset($_POST["title"])) {
     $stmt = $db->prepare("INSERT INTO `posts` (`authorId`, `title`, `content`) VALUES (?, ?, ?);");
     $stmt->execute([$authorId, $title, $postContent]);
 
-    if (empty($_FILES["image"]["error"])) {
-        //$postCount = $db->query("SELECT `posts` FROM `users` WHERE `username` = '" . $_SESSION['user'] . "';")->fetch()["posts"];
-        //$postCountPlus = (int)$postCount + 1;
-
-        $image = file_get_contents($_FILES["image"]["tmp_name"]);
-
-        $stmt = $db->prepare("INSERT INTO `posts` (`image`) VALUES (?);");
-        $stmt->execute([base64_encode($image)]);
-    }
     $postIncrement = $db->prepare("UPDATE `users`
                                     SET `posts` = `posts` + 1
                                     WHERE `username` = '" . $_SESSION['user'] . "';
                                 ")->execute();
     header("Location: index.php");
+
+} elseif (isset($_POST["title"]) && empty($_FILES["image"]["error"])){
+    $title = $_POST['title'];
+    $postContent = $_POST['post-content'];
+
+    $authorId = $db->query("SELECT id FROM users WHERE username = '" . $_SESSION["user"] . "'")->fetch()["id"];
+    
+    $image = file_get_contents($_FILES["image"]["tmp_name"]);
+
+    $stmt = $db->prepare("INSERT INTO `posts` (`authorId`, `title`, `content`, `image`) VALUES (?, ?, ?, ?);");
+    $stmt->execute([$authorId, $title, $postContent, base64_encode($image)]);
+
+    $postIncrement = $db->prepare("UPDATE `users`
+                                    SET `posts` = `posts` + 1
+                                    WHERE `username` = '" . $_SESSION['user'] . "';
+                                ")->execute();
+    header("Location: index.php");
+} else {
+    echo $_FILES["image"]["error"];
 }
-
-
 ?>
 
 <!DOCTYPE html>
