@@ -4,32 +4,37 @@ require_once 'config.php';
 
 $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_USERNAME, DB_USERNAME, DB_PASSWORD);
 
+$user = $db->query("SELECT * FROM `users` WHERE `username` = '" . $_SESSION['user'] . "';")->fetch();
+
+$creationDate = $db->query("SELECT `creation-date` FROM `users` WHERE `username` = '" . $_SESSION['user'] . "';")->fetch()["creation-date"];
+$newDate = date("d.m. Y H:i", strtotime($creationDate));
+
 if (isset($_POST["title"])) {
+    $title = $_POST['title'];
+    $postContent = $_POST['post-content'];
+
+    $authorId = $db->query("SELECT id FROM users WHERE username = '" . $_SESSION["user"] . "'")->fetch()["id"];
+
+    $stmt = $db->prepare("INSERT INTO `posts` (`authorId`, `title`, `content`) VALUES (?, ?, ?);");
+    $stmt->execute([$authorId, $title, $postContent]);
+
     if (empty($_FILES["image"]["error"])) {
-        $title = $_POST['title'];
-        $postContent = $_POST['post-content'];
-
-        $postCount = $db->query("SELECT `posts` FROM `users` WHERE `username` = '" . $_SESSION['user'] . "';")->fetch()["posts"];
-        $postCountPlus = (int)$postCount + 1;
-
-        $creationDate = $db->query("SELECT `creation-date` FROM `users` WHERE `username` = '" . $_SESSION['user'] . "';")->fetch()["creation-date"];
-        $newDate = date("d.m. Y H:i", strtotime($creationDate));
-
-        $authorId = $db->query("SELECT id FROM users WHERE username = '" . $_SESSION["user"] . "'")->fetch()["id"];
+        //$postCount = $db->query("SELECT `posts` FROM `users` WHERE `username` = '" . $_SESSION['user'] . "';")->fetch()["posts"];
+        //$postCountPlus = (int)$postCount + 1;
 
         $image = file_get_contents($_FILES["image"]["tmp_name"]);
 
-        $stmt = $db->prepare("INSERT INTO `posts` (`authorId`, `title`, `content`, `image`) VALUES (?, ?, ?, ?);");
-        $stmt->execute([$authorId, $title, $postContent, base64_encode($image)]);
-
-        $postIncrement = $db->prepare("UPDATE `users`
-                                        SET `posts` = `posts` + 1
-                                        WHERE `username` = '" . $_SESSION['user'] . "';
-                                    ")->execute();
-        
-        header("Location: index.php");
+        $stmt = $db->prepare("INSERT INTO `posts` (`image`) VALUES (?);");
+        $stmt->execute([base64_encode($image)]);
     }
+    $postIncrement = $db->prepare("UPDATE `users`
+                                    SET `posts` = `posts` + 1
+                                    WHERE `username` = '" . $_SESSION['user'] . "';
+                                ")->execute();
+    header("Location: index.php");
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +64,7 @@ if (isset($_POST["title"])) {
                 <img src="imgs/plus-circle.svg" id="newPost-button">
             </a>
             <a class="pfp" href="profile.php">
-                <img src="imgs/gargamel-pfp.jpg">
+                <img src="data:image/png;base64,<?= $user["pfp"] ?>">
             </a>
             <div class="dropdown">
                 <div class="drop-btn">

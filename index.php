@@ -72,6 +72,8 @@ $rows = $db->query("SELECT COUNT(*) FROM `posts`")->fetch();
                     continue;
                 } else {
                     $authorId = $db->query("SELECT `authorId` FROM `posts` WHERE `id` = '" . $id . "';")->fetch(); // Fetchnu si id autora postu (authorId)
+                    $newDate = date("H:i:s d.m. Y", strtotime($posts["dateTime"]));
+                    
                     $author = $db->query("SELECT * FROM `users` WHERE `id` = '" . $authorId[0] . "';")->fetch(); // Fetchnu si usera autora postu podle authorId na postu
                     ?>
                     <div class="post-container flex flex-dir-col">
@@ -83,12 +85,18 @@ $rows = $db->query("SELECT COUNT(*) FROM `posts`")->fetch();
                                 <?= $author["username"] ?>
                             </div>
                             <div class="dateTime">
-                                <?= $posts["dateTime"] ?>
+                                <?= $newDate ?>
                             </div>
                         </div>
                         <div><!--mozne odebrat?-->
                         <div class="flex flex-dir-row post-content-wrapper">
-                            <img src="data:image/png;base64,<?= $posts["image"] ?>" class="post-image">
+                            <?php
+                                if (!empty($posts["image"])) {
+                                    ?>
+                                        <img src="data:image/png;base64,<?= $posts["image"] ?>" class="post-image">
+                                    <?php
+                                }
+                            ?>
                             <div class="flex flex-dir-col">
                                 <div class="post-title">
                                     <?= $posts["title"] ?>
