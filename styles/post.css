@@ -1,18 +1,30 @@
-.post-container {
-    display: flex;
-    flex-direction: row;
-
-    height: 16rem;
-    background-color: aqua;
-}
-
-.post {
+main {
     display: flex;
     flex-direction: column;
-
-
 }
 
-.post img {
+.post-container {
+    color: white;
+
+    height: auto;
+    background-color: #1A1B26;
+}
+
+.post-image {
+    max-width: 45%;
+}
+
+.poster-info {
+    margin-bottom: 1rem;
+}
+
+.poster-pfp {
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+.poster-pfp img {
     height: 100%;
+    width: 100%;
+    border-radius: 100%;
 }

@@ -6,7 +6,8 @@ require_once "config.php";
 $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_USERNAME, DB_USERNAME, DB_PASSWORD);
 $user = $db->query("SELECT * FROM `users` WHERE `username` = '" . $_SESSION['user'] . "';")->fetch();
 
-$posts = $db->query("SELECT * FROM `posts`")->fetch();
+
+$rows = $db->query("SELECT COUNT(*) FROM `posts`")->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -63,23 +64,55 @@ $posts = $db->query("SELECT * FROM `posts`")->fetch();
         </div>
     </div>
     <main>
-        <div class="left-side">
-            <div class="post-container">
-                <img src="">
-                <div class="post">
-                    <div class="post-title">
-
+        <?php
+            $i = 0;
+            for ($id = 0; $i < (int)$rows[0]; $id++) {
+                $posts = $db->query("SELECT * FROM `posts` WHERE `id` = '" . $id . "';")->fetch();
+                if (empty($posts)) {
+                    continue;
+                } else {
+                    $authorId = $db->query("SELECT `authorId` FROM `posts` WHERE `id` = '" . $id . "';")->fetch(); // Fetchnu si id autora postu (authorId)
+                    $author = $db->query("SELECT * FROM `users` WHERE `id` = '" . $authorId[0] . "';")->fetch(); // Fetchnu si usera autora postu podle authorId na postu
+                    ?>
+                    <div class="post-container flex flex-dir-col">
+                        <div class="flex flex-dir-row poster-info">
+                            <a href="#" class="poster-pfp">
+                                <img src="data:image/png;base64,<?= $author["pfp"] ?>">
+                            </a>
+                            <div class="poster-name">
+                                <?= $author["username"] ?>
+                            </div>
+                            <div class="dateTime">
+                                <?= $posts["dateTime"] ?>
+                            </div>
+                        </div>
+                        <div>
+                        <div class="flex flex-dir-row">
+                            <img src="data:image/png;base64,<?= $posts["image"] ?>" class="post-image">
+                            <div class="flex flex-dir-col">
+                                <div class="post-title">
+                                    <?= $posts["title"] ?>
+                                </div>
+                                <div class="post-content">
+                                    <?= $posts["content"] ?>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        
                     </div>
-                    <div class="post-content">
 
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="right-side">
+                    <?php
+                    $i++;
+                }
+            }
+        ?>
 
-        </div>
+        
     </main>
+
+
+
     <footer class="flex flex-dir-row" >
         <a href="https://github.com/CookieKGcz/tumblregram" class="footer-github">
             <img src="imgs/Github-logo.svg" height="100%">
