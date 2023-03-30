@@ -5,6 +5,8 @@ require_once "config.php";
 
 $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_USERNAME, DB_USERNAME, DB_PASSWORD);
 $user = $db->query("SELECT * FROM `users` WHERE `username` = '" . $_SESSION['user'] . "';")->fetch();
+
+$posts = $db->query("SELECT * FROM `posts`")->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +17,7 @@ $user = $db->query("SELECT * FROM `users` WHERE `username` = '" . $_SESSION['use
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TumblreGram</title>
     <link rel="icon" type="image/x-icon" href="imgs/logo.ico">
+    <link rel="stylesheet" href="styles/post.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/dropdown.css">
@@ -60,7 +63,22 @@ $user = $db->query("SELECT * FROM `users` WHERE `username` = '" . $_SESSION['use
         </div>
     </div>
     <main>
+        <div class="left-side">
+            <div class="post-container">
+                <img src="">
+                <div class="post">
+                    <div class="post-title">
 
+                    </div>
+                    <div class="post-content">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+
+        </div>
     </main>
     <footer class="flex flex-dir-row" >
         <a href="https://github.com/CookieKGcz/tumblregram" class="footer-github">

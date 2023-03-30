@@ -1,0 +1,18 @@
+.post-container {
+    display: flex;
+    flex-direction: row;
+
+    height: 16rem;
+    background-color: aqua;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.post img {
+    height: 100%;
+}
