@@ -86,8 +86,8 @@ $rows = $db->query("SELECT COUNT(*) FROM `posts`")->fetch();
                                 <?= $posts["dateTime"] ?>
                             </div>
                         </div>
-                        <div>
-                        <div class="flex flex-dir-row">
+                        <div><!--mozne odebrat?-->
+                        <div class="flex flex-dir-row post-content-wrapper">
                             <img src="data:image/png;base64,<?= $posts["image"] ?>" class="post-image">
                             <div class="flex flex-dir-col">
                                 <div class="post-title">

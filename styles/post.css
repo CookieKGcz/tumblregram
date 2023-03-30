@@ -5,26 +5,46 @@ main {
 
 .post-container {
     color: white;
-
+    padding: 1rem;
     height: auto;
     background-color: #1A1B26;
+    outline: 1px solid black;
+}
+
+.post-content-wrapper {
+    align-items: flex-start;
 }
 
 .post-image {
     max-width: 45%;
+    margin-right: 2rem;
+    /*nějaký max aspect ratio*/
+    object-fit: contain;
 }
 
 .poster-info {
     margin-bottom: 1rem;
+    align-items: center;
 }
 
 .poster-pfp {
     height: 3.5rem;
     width: 3.5rem;
+    margin-right: 1rem;
 }
 
 .poster-pfp img {
     height: 100%;
     width: 100%;
     border-radius: 100%;
+}
+
+.poster-name {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.post-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
