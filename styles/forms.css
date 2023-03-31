@@ -63,6 +63,10 @@ input:focus {
     font-size: 1rem;
 }
 
+.redirect a {
+    color: azure;
+}
+
 .error-msg {
     font-size: 1.5rem;
     color: white;
@@ -81,4 +85,44 @@ input:focus {
 #home-button {
     width: 6rem;
     height: 6rem;
+}
+
+
+
+@media (max-width: 650px) {
+    .form-background {
+        top: 30%;
+        width: 20rem;
+        height: 17rem;
+    }
+}
+
+@media (max-width: 330px) {
+    .form-background {
+        width: 16rem;
+    }
+}
+
+@media (min-width: 2000px) {
+    .form-background {
+        height: 23rem;
+        width: 30rem;
+    }
+
+    input {
+        width: 16rem;
+        height: 2.25rem;
+        border-radius: 4px;
+        font-size: 1.5rem;
+    }
+
+    button {
+        width: 12rem;
+        height: 2.25rem;
+        font-size: 1.2rem;
+    }
+
+    .redirect {
+        font-size: 1.2rem;
+    }
 }

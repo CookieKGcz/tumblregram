@@ -90,3 +90,36 @@ main {
   cursor: pointer;
   background-color: #dddddd;
 }
+
+@media (max-width: 750px) {
+  .newPost-btn-link {
+    display: none;
+  }
+
+  .top-bar {
+    grid: 8rem/15rem auto 15rem;
+  }
+
+  body {
+    grid: 20rem auto 50rem / 1fr 2fr 1fr;
+  }
+
+  .new-post > * {
+    width: 30rem;
+  }
+
+  #post-content {
+    height: 18rem;
+}
+
+  #image-btn {
+    margin-right: 20rem;
+    height: 2rem;
+    padding-top: 0.45rem;
+  }
+
+  #submit-btn {
+    margin-right: 20rem;
+    height: 3rem;
+  }
+}

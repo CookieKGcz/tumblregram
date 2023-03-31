@@ -26,3 +26,21 @@ main {
   min-height: 60rem;
   grid-area: 2/2;
 }
+
+@media (max-width: 1500px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    font-size: 22px;
+  }
+}

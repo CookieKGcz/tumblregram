@@ -63,10 +63,9 @@ if (isset($_POST["title"]) && $_FILES["image"]["tmp_name"] == "") {
         <a href="index.php" id="logo">
             <img src="imgs/logo.svg" height="100%">
         </a>
-        <form id="search-bar">
-            <input id="mag-glass" type="image" src="imgs/Magnifying_glass_icon.svg" alt="Search" height="28px">
-            <input id="search-box" type="text" onfocus="setOutline()" onfocusout="removeOutline()" placeholder="Search">
-        </form>
+        <div class="page-title">
+            TG
+        </div>
         <div class="profile-wrapper">
             <a href="newPost.php" class="newPost-btn-link">
                 <img src="imgs/plus-circle.svg" id="newPost-button">

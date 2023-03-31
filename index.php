@@ -19,9 +19,9 @@ $rows = $db->query("SELECT COUNT(*) FROM `posts`")->fetch();
     <title>TumblreGram</title>
     <link rel="icon" type="image/x-icon" href="imgs/logo.ico">
     <link rel="stylesheet" href="styles/post.css">
+    <link rel="stylesheet" href="styles/dropdown.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/navbar.css">
-    <link rel="stylesheet" href="styles/dropdown.css">
     <link rel="stylesheet" href="styles/footer.css">
 </head>
 <body>
@@ -29,10 +29,13 @@ $rows = $db->query("SELECT COUNT(*) FROM `posts`")->fetch();
         <a href="index.php" id="logo">
             <img src="imgs/logo.svg" height="100%">
         </a>
-        <form id="search-bar">
+        <!--<form id="search-bar">
             <input id="mag-glass" type="image" src="imgs/Magnifying_glass_icon.svg" alt="Search" height="28px">
             <input id="search-box" type="text" onfocus="setOutline()" onfocusout="removeOutline()" placeholder="Search">
-        </form>
+        </form>-->
+        <div class="page-title">
+            TG
+        </div>
         <div class="buttons flex flex-dir-row">
             <?php
             if (!isset($_SESSION["user"])) { ?>
@@ -86,14 +89,6 @@ $rows = $db->query("SELECT COUNT(*) FROM `posts`")->fetch();
                             </div>
                             <div class="dateTime">
                                 <?= $newDate ?>
-                            </div>
-                            <div class="post-dropdown">
-                                <div class="post-drop-btn">
-                                    <img src="imgs/3-dots-icon.svg" height="100%">
-                                </div>
-                                <div class="post-drop-content">
-                                    <a href="index.php">Home</a>
-                                </div>
                             </div>
                         </div>
                         <div><!--mozne odebrat?-->

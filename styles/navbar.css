@@ -45,7 +45,16 @@
   align-items: center;
   grid-area: 1/1 /span 1 / span 3;
   display: grid;
-  grid: 8rem/24rem auto 24rem;
+  grid: 8rem/20rem auto 20rem;
+}
+
+.page-title {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  display: flex;
+  justify-self: center;
+  color: aqua;
+  font-size: 3.5rem;
 }
 
 .buttons {
@@ -65,35 +74,6 @@
 .buttons button:hover {
   box-shadow: 0 0 1.5rem aqua;
   cursor: pointer;
-}
-
-#search-bar {
-  grid-area: 1/2;
-  display: flex;
-  justify-content: center;
-  justify-self: center;
-  align-items: center;
-
-  background-color: white;
-  width: 30rem;
-  max-width: 30rem;
-  height: 2rem;
-
-  border-radius: 8px;
-}
-
-#search-box {
-  flex: 1;
-  height: 2rem;
-  border: none;
-  padding: 0;
-  border-radius: 0 8px 8px 0;
-
-  font-size: 1.2rem;
-}
-
-#search-box:focus {
-  outline: none;
 }
 
 #sign-up,
@@ -121,4 +101,11 @@
 #mag-glass {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+}
+
+@media (max-width: 1080px) {
+  .buttons button{
+    height: 3.5rem;
+    width: 7rem;
+  }
 }

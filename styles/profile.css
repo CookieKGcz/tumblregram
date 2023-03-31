@@ -112,3 +112,15 @@ form {
 #submit-btn:hover {
   cursor: pointer;
 }
+
+
+
+@media (max-width: 750px) {
+  body {
+    grid: 20rem auto 50rem / 1fr 2fr 1fr;
+  }
+
+  .newPost-btn-link {
+    display: none;
+  }
+}

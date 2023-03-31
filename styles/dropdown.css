@@ -33,7 +33,7 @@
 .drop-content a {
   background-color: transparent;
   color: black;
-  padding: 12px 16px;
+  padding: 0.75rem 1rem;
   text-decoration: none;
   display: block;
 }
@@ -44,4 +44,13 @@
 
 .dropdown:hover .drop-content {
   display: block;
+}
+
+
+
+
+@media (max-width: 750px) {
+  .top-bar {
+    grid: 8rem/15rem auto 15rem;
+  }
 }
