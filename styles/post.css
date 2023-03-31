@@ -27,6 +27,10 @@ main {
     align-items: center;
 }
 
+.poster-info:last-child {
+
+}
+
 .poster-pfp {
     height: 3.5rem;
     width: 3.5rem;
@@ -51,4 +55,42 @@ main {
 .post-title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+}
+
+.post-dropdown {
+    position: relative;
+    display: inline-block;
+    align-self: center;
+}
+
+.post-drop-btn {
+    display: flex;
+    justify-content: end;
+    height: 2rem;
+}
+
+.post-drop-content {
+    border-radius: 10px;
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.post-drop-content a {
+    background-color: transparent;
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+
+.post-drop-content a:hover {
+    background-color: #ddd;
+}
+
+.post-dropdown:hover .post-drop-content {
+    display: block;
 }

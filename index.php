@@ -87,25 +87,33 @@ $rows = $db->query("SELECT COUNT(*) FROM `posts`")->fetch();
                             <div class="dateTime">
                                 <?= $newDate ?>
                             </div>
-                        </div>
-                        <div><!--mozne odebrat?-->
-                        <div class="flex flex-dir-row post-content-wrapper">
-                            <?php
-                                if (!empty($posts["image"])) {
-                                    ?>
-                                        <img src="data:image/png;base64,<?= $posts["image"] ?>" class="post-image">
-                                    <?php
-                                }
-                            ?>
-                            <div class="flex flex-dir-col">
-                                <div class="post-title">
-                                    <?= $posts["title"] ?>
+                            <div class="post-dropdown">
+                                <div class="post-drop-btn">
+                                    <img src="imgs/3-dots-icon.svg" height="100%">
                                 </div>
-                                <div class="post-content">
-                                    <?= $posts["content"] ?>
+                                <div class="post-drop-content">
+                                    <a href="index.php">Home</a>
                                 </div>
                             </div>
                         </div>
+                        <div><!--mozne odebrat?-->
+                            <div class="flex flex-dir-row post-content-wrapper">
+                                <?php
+                                    if (!empty($posts["image"])) {
+                                        ?>
+                                            <img src="data:image/png;base64,<?= $posts["image"] ?>" class="post-image">
+                                        <?php
+                                    }
+                                ?>
+                                <div class="flex flex-dir-col">
+                                    <div class="post-title">
+                                        <?= $posts["title"] ?>
+                                    </div>
+                                    <div class="post-content">
+                                        <?= $posts["content"] ?>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                     </div>

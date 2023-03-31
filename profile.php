@@ -76,7 +76,7 @@ if (isset($_FILES["image"]["tmp_name"])) {
                 <form method="post" enctype="multipart/form-data">
                     <label tabindex="0" for="image" id="image-btn">Choose image</label>
                     <input type="file" name="image" id="image" accept="image/*">
-                    <button type="submit">Applay changes</button>
+                    <button id="submit-btn" type="submit">Apply changes</button>
                 </form>
             </div>
             <div class="profile-info flex flex-dir-col">
